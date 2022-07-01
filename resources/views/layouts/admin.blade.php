@@ -15,7 +15,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" style="font-family: 'Poppins'">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -28,7 +28,7 @@
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
-            <div id="content">
+            <div id="content" style="color: #000;">
 
                 <!-- Topbar -->
                 @include('includes.admin.navbar')
