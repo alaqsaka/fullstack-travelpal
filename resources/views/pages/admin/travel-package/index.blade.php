@@ -9,7 +9,7 @@
                 <h1 class="h3 mb-0 text-gray-800">Travel Package</h1>
                 <a href="{{ route('travel-package.create') }}" class="btn btn-sm btn-primary px-3 py-3" style="background-color: #0094FF; border: none;">
                     <i class="fas fa-plus fa-sm text-white mr-2">
-                    </i>Tambah Paket Travel
+                    </i>Create New Package Travel
                 </a>
             </div>
 
