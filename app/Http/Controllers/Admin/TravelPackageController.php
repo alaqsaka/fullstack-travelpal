@@ -17,7 +17,7 @@ class TravelPackageController extends Controller
     {
         $items = TravelPackage::all();
 
-        return view('pages.admin.travel-package.index');
+        return view('pages.admin.travel-package.index', ['items' => $items]);
     }
 
     /**
