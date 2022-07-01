@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top">
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top border-bottom">
     <div class="navbar-brand">
         <h4 class="font-weight-bold">Hello, {{ Auth::user()->name }} 👋</h4>
     </div>
