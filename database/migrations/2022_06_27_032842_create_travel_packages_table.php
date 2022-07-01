@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('featured_event');
             $table->string('language');
             $table->string('foods');
+            $table->string('duration');
             $table->date('departure_date');
             $table->string('type');
             $table->integer('price');
