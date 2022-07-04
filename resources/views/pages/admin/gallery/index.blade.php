@@ -31,9 +31,8 @@
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->travel_package->title }}</td>
                                     <td>
-                                        <img src="{{ storage::url($item->image) }}" alt="" srcset="" style="width: 150px" class="img-thumbnail">
+                                        <img src="{{ Storage::url($item->image) }}" alt="" srcset="" style="width: 150px" class="img-thumbnail">
                                     </td>
-                                    <td>{{ $item->type }}</td>
                                     <td>
                                         <a href="{{ route('gallery.edit', $item->id) }}" class="btn btn-info"><i class="fa fa-pencil-alt"></i></a>
                                         <form action="{{ route('gallery.destroy', $item->id) }}" method="POST" class="d-inline">
