@@ -31,7 +31,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('dashboard') }}">
+        <a class="nav-link" href="{{ route('transaction.index') }}">
             <i class="fas fa-fw fa-file-invoice-dollar"></i>
             <span>Transaction</span></a>
     </li>

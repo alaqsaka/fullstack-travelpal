@@ -20,7 +20,7 @@ class Transaction extends Model
 
     // Relasi transaction details 
     public function details(){
-        return $this->hasMany(TransactionDetail::class, 'transaction_id', 'id');
+        return $this->hasMany(TransactionDetail::class, 'transactions_id', 'id');
     }
 
     // Relasi travel package
