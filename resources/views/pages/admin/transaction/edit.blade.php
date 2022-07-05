@@ -6,7 +6,7 @@
 
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Edit Travel Package {{ $item->title }} </h1>
+                <h1 class="h3 mb-0 text-gray-800">Edit Transaction Status (#{{ $item->id }})</h1>
             </div>
 
             @if ($errors->any())
@@ -21,48 +21,19 @@
 
             <div class="card shadow">
                 <div class="card-body">
-                    <form action="{{ route('travel-package.update', $item->id) }}" method="POST">
+                    <form action="{{ route('transaction.update', $item->id) }}" method="POST">
                     @method('PUT')
                     @csrf
                         <div class="form-group">
-                            <label for="title">Title</label>
-                            <input type="text" class="form-control" name="title" id="title" value="{{ $item->title }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="title">Location</label>
-                            <input type="text" class="form-control" name="location" id="location" value="{{ $item->location }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="about">About This Trip</label>
-                            <textarea name="about" id="about" rows="3" class="form-control d-block w-100">{{ $item->about }}</textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="featured_event">Featured Event</label>
-                            <input type="text" class="form-control" name="featured_event" id="featured_event" value="{{ $item->featured_event }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="language">Language</label>
-                            <input type="text" class="form-control" name="language" id="language" value="{{ $item->language }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="foods">Foods</label>
-                            <input type="text" class="form-control" name="foods" id="foods" value="{{ $item->foods }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="departure_date">Departure Date</label>
-                            <input type="date" class="form-control" name="departure_date" id="departure_date" value="{{ $item->departure_date }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="duration">Duration</label>
-                            <input type="text" class="form-control" name="duration" id="duration" value="{{ $item->duration }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="type">Type</label>
-                            <input type="text" class="form-control" name="type" id="type" value="{{ $item->type }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="price">Price</label>
-                            <input type="number" class="form-control" name="price" id="price" value="{{ $item->price }}">
+                            <label for="transaction_status">Status</label>
+                            <select name="transaction_status" id="" required class="form-control">
+                                <option value="{{ $item->transaction_status }}">Don't Change ({{ $item->transaction_status }})</option>
+                                <option value="IN_CART">In Cart</option>
+                                <option value="PENDING">Pending</option>
+                                <option value="SUCCESS">Success</option>
+                                <option value="CANCEL">Cancel</option>
+                                <option value="FAILED">Failed</option>
+                            </select>
                         </div>
                         <button class="btn btn-primary btn-block">Update</button>
                     </form>
