@@ -28,90 +28,69 @@
         <div class="row">
           <div class="col-lg-8 pl-lg-0">
             <div class="card card-details">
-              <h1>Nusa Penida</h1>
-              <p>Indonesia</p>
-              <div class="gallery">
-                <div class="xzoom-container">
-                  <img src="{{ url('frontend/images/details-1.jpg') }}" 
-                  alt="" srcset="" 
-                  class="xzoom" 
-                  id="xzoom-default" 
-                  xoriginal="frontend/images/details-1.jpg">
-                </div>
-                <div class="xzoom-thumbs">
-                    <a href="frontend/images/details-1.jpg"
-                      ><img
-                        class="xzoom-gallery"
-                        width="128"
-                        src="frontend/images/details-1.jpg"
-                        xpreview="frontend/images/details-1.jpg"
-                    /></a>
-                    <a href="frontend/images/details-1.jpg"
-                      ><img
-                        class="xzoom-gallery"
-                        width="128"
-                        src="frontend/images/details-1.jpg"
-                        xpreview="frontend/images/details-1.jpg"
-                    /></a>
-                    <a href="frontend/images/details-1.jpg"
-                      ><img
-                        class="xzoom-gallery"
-                        width="128"
-                        src="frontend/images/details-1.jpg"
-                        xpreview="frontend/images/details-1.jpg"
-                    /></a>
-                    <a href="frontend/images/details-1.jpg"
-                      ><img
-                        class="xzoom-gallery"
-                        width="128"
-                        src="frontend/images/details-1.jpg"
-                        xpreview="frontend/images/details-1.jpg"
-                    /></a>
-                    <a href="frontend/images/details-1.jpg"
-                      ><img
-                        class="xzoom-gallery"
-                        width="128"
-                        src="frontend/images/details-1.jpg"
-                        xpreview="frontend/images/details-1.jpg"
-                    /></a>
+              <h1>{{ $item->title }}</h1>
+              <p>{{ $item->location }}</p>
+              
+
+              @if ($item->galleries->count())
+                <div class="gallery">
+                  <div class="xzoom-container">
+                    <img src="{{ url($item->galleries->first()->image) }}" 
+                    alt="" srcset="" 
+                    class="xzoom" 
+                    id="xzoom-default" 
+                    
+                    xoriginal="{{ url($item->galleries->first()->image) }}">
                   </div>
-              </div>
+                  <div class="xzoom-thumbs">
+                      @foreach ($item->galleries as $gallery)
+                        <a href="{{ Storage::url($gallery->image) }}"
+                        ><img
+                          class="xzoom-gallery"
+                          width="128"
+                          height="86"
+                          src="{{ Storage::url($gallery->image) }}"
+                          xpreview="{{ Storage::url($gallery->image) }}"
+                      /></a>
+                      @endforeach
+                      
+                    </div>
+                </div>
+              @endif
+
               <h2>
-                About Nusa penida
+                About {{ $item->title }}
               </h2>
               <p>
-                Nusa Penida is the largest and most exotic of the 3 Nusa islands, thanks to its collection of unique Hindu temples and picturesque natural features of cliff formations and lagoons. More recently, the island became best known as the new sanctuary of the once-endangered Bali starling (originally an endemic species from the forested region of West Bali National Park) following a highly successful captive breeding programme. 
-              </p>
-              <p>
-                Nusa Penida measures over 200 sq km – significantly larger than the popular Nusa Lembongan and its accessible sister island, Nusa Ceningan. Lesser-travelled compared to the other 2, Nusa Penida has a very limited number of hotels and tourist features. Even so, what it lacks in infrastructure, it makes up for with unspoiled natural beauty and rare cultural highlights.
+                {{ $item->about }}
               </p>
               <div class="features row">
                 <div class="col-md-4">
                   <div class="description">
-                    <img src="frontend/images/ic_event.png" alt="" srcset=""  class="features-img">
+                    <img src="{{ url('frontend/images/ic_event.png') }}" alt="" srcset=""  class="features-img">
                     <div class="description">
                       <h3>Featured Event</h3>
-                   <p>Tari Kecak</p>
+                      <p>{{ $item->featured_event }}</p>
                     </div>
                    
                   </div>
                 </div>
                 <div class="col-md-4 border-left">
                   <div class="description">
-                    <img src="frontend/images/ic_bahasa.png" alt="" srcset="" class="features-img">
+                    <img src="{{ url('frontend/images/ic_bahasa.png') }}" alt="" srcset="" class="features-img">
                     <div class="description">
                       <h3>Language</h3>
-                      <p>Bahasa Indonesia</p>
+                      <p>{{ $item->language }}</p>
                     </div>
                   
                   </div>
                 </div>
                 <div class="col-md-4 border-left">
                   <div class="description">
-                    <img src="frontend/images/ic_foods.png" alt="" srcset="" class="features-img">
+                    <img src="{{ url('frontend/images/ic_foods.png') }}" alt="" srcset="" class="features-img">
                     <div class="description">
                       <h3>Foods</h3>
-                      <p>Local Foods</p>
+                      <p>{{ $item->foods }}</p>
                     </div>
      
                   </div>
@@ -125,7 +104,7 @@
               <h2>Members are going</h2>
               <div class="members my-2">
                 <!-- To do: Change this to individual picture -->
-                <img src="frontend/images/members.png" alt="" class="member-image">
+                <img src="{{ url('frontend/images/members.png') }}" alt="" class="member-image">
               </div>
               <hr>
               <h2>Trip Information</h2>
@@ -136,15 +115,15 @@
                 </tr>
                 <tr>
                   <th width="50%">Duration</th>
-                  <td width=""50% class="text-right">4D 3N</td>
+                  <td width=""50% class="text-right">{{ $item->duration }}</td>
                 </tr>
                 <tr>
                   <th width="50%">Type</th>
-                  <td width=""50% class="text-right">Open Trip</td>
+                  <td width=""50% class="text-right">{{ $item->type }}</td>
                 </tr>
                 <tr>
                   <th width="50%">Price</th>
-                  <td width=""50% class="text-right">$80,00 / person</td>
+                  <td width=""50% class="text-right">${{ $item->price }} / person</td>
                 </tr>
               </table>
             </div>
