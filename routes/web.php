@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/detail', [DetailController::class, 'index'])->name('detail');
+Route::get('/detail/{slug}', [DetailController::class, 'index'])->name('detail');
 
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 

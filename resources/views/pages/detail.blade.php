@@ -32,7 +32,7 @@
               <p>Indonesia</p>
               <div class="gallery">
                 <div class="xzoom-container">
-                  <img src="frontend/images/details-1.jpg" 
+                  <img src="{{ url('frontend/images/details-1.jpg') }}" 
                   alt="" srcset="" 
                   class="xzoom" 
                   id="xzoom-default" 
