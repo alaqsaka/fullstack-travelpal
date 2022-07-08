@@ -62,7 +62,7 @@
                 About {{ $item->title }}
               </h2>
               <p>
-                {{ $item->about }}
+                {{  $item->about  }}
               </p>
               <div class="features row">
                 <div class="col-md-4">
@@ -111,7 +111,7 @@
               <table class="trip-information">
                 <tr>
                   <th width="50%">Date of Departure</th>
-                  <td width=""50% class="text-right">22 June 2022</td>
+                  <td width=""50% class="text-right">{{ \Carbon\Carbon::create($item->date_of_departure)->format('F n, Y') }}</td>
                 </tr>
                 <tr>
                   <th width="50%">Duration</th>
@@ -123,14 +123,23 @@
                 </tr>
                 <tr>
                   <th width="50%">Price</th>
-                  <td width=""50% class="text-right">${{ $item->price }} / person</td>
+                  <td width=""50% class="text-right">${{ $item->price }},00 / person</td>
                 </tr>
               </table>
             </div>
             <div class="join-container">
-              <a href="{{ route('checkout') }}" class="btn btn-block btn-join-now mt-3 py-2">
-                Join Now
-              </a>
+              @auth
+                <form action="" method="POST">
+                  <button class="btn btn-block btn-join-now mt-3 py-2" type="submit">
+                    Join Now
+                  </button>
+                </form>
+              @endauth
+              @guest
+                <a href="{{ route('login') }}" class="btn btn-block btn-join-now mt-3 py-2">
+                  Login or Register to Join
+                </a>
+              @endguest
             </div>
           </div>
         </div>
