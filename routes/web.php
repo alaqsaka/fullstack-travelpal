@@ -29,8 +29,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/detail/{slug}', [DetailController::class, 'index'])->name('detail');
 
-Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
-
 // Untuk memroses data dari proses checkout
 Route::post('/checkout/{id}', [CheckoutController::class, 'process'])
     ->name('checkout_process')
