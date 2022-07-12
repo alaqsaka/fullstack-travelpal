@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ExploreController;
 use App\Models\Gallery;
 use App\Models\TravelPackage;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,8 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/explore', [ExploreController::class, 'index'])->name('explore');
 
 Route::get('/detail/{slug}', [DetailController::class, 'index'])->name('detail');
 
