@@ -8,7 +8,7 @@ class ExploreController extends Controller
 {
     public function index(Request $request){
         // get all travel packages
-        $items = TravelPackage::with(['galleries'])->get();
+        $items = TravelPackage::with(['galleries'])->paginate(8);
         return view('pages.Explore.explore', ['items' => $items]);
     }
 }
