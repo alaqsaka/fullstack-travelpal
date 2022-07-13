@@ -21,27 +21,27 @@
           <div class="mt-4">
             <h1 class="tes">Popular Trips</h1>
             <div class="row">
-              <div class="col-md-6 col-lg mt-2">
-                
+              @foreach ($items as $item)
+                <div class="col-md-4 col-lg-3 col-sm-6 mb-3">
                   <div class="card" style="border-radius: 10px">
-                  <img src="{{ url("frontend/images/header-background@2x.jpg") }}" class="card-img-top travel-card" alt="">
-                  <div class="card-body">
-                    <h6 class=""><strong>Explore Bali </strong></h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <div class="row">
-                      <div class="col">
-                        <p><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;<strong>Bali</strong></p>
+                    <img src="{{ url("frontend/images/header-background@2x.jpg") }}" class="card-img-top travel-card" alt="">
+                    <div class="card-body">
+                      <h6 class=""><strong>Explore Bali </strong></h6>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <div class="row">
+                        <div class="col">
+                          <p><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;<strong>Bali</strong></p>
+                        </div>
+                        <div class="col">
+                          <i class="fas fa-bed"></i>&nbsp;&nbsp;<strong>2 Nights</strong>
+                        </div>
                       </div>
-                      <div class="col">
-                        <i class="fas fa-bed"></i>&nbsp;&nbsp;<strong>2 Nights</strong>
-                      </div>
+                      <a href="#" class="stretched-link"></a>
                     </div>
-                    <a href="#" class="stretched-link"></a>
-
                   </div>
-                </div>
-                
-              </div>
+                </div>  
+              @endforeach
+             
               
             </div> 
             
