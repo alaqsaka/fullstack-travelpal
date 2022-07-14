@@ -1,0 +1,43 @@
+.text-orange {
+    color: #ff9e53;
+}
+
+.content {
+    background-color: #edeeef;
+}
+
+.nav-item {
+    border: none !important;
+}
+
+.nav-link {
+    color: #071C4D !important;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    border: none !important;
+    border-radius: 10px !important;
+    font-weight: 700;
+}
+
+.nav-tabs .nav-link.active i {
+    color: #ff9e53 !important;
+}
+
+.tab-nav-link {
+    font-size: 16px !important;
+    color: red;
+}
+
+@media (min-width: 768px) {
+    .profile-name { 
+        font-size: 80px;
+        margin-left: 20px;
+    }
+
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+    }
+}
+
